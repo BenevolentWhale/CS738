@@ -7,7 +7,7 @@ public class IntersectionSO : ScriptableObject
 {
     public float x, y;
     public int num;
-    public bool active;
+    public bool active = true;
 
     public float igCost, ihCost = 0;
     public float fCost = 0;

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 11396642163124509}
   - component: {fileID: 2459271339385291845}
-  - component: {fileID: 2116370374568268307}
+  - component: {fileID: 7324450652367641756}
   m_Layer: 0
   m_Name: Road
   m_TagString: Untagged
@@ -129,7 +129,7 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
---- !u!114 &2116370374568268307
+--- !u!114 &7324450652367641756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,13 +138,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1965750924534032342}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65eb4289dd660e143a935eed79d4dfca, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ffa9b4ca33d2b84c97c9103eb5a0da3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   src: 0
   dest: 0
   speedLimit: 0
-  source: {fileID: 0}
-  destination: {fileID: 0}
   distance: 0
   LineRenderer: {fileID: 0}

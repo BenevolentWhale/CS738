@@ -506,7 +506,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 294617104}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa4c3c33485828447af717c1c194753e, type: 3}
+  m_Script: {fileID: 11500000, guid: fee5fb1972703a0489ea8d49e48d8332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startTime: 0
@@ -515,7 +515,7 @@ MonoBehaviour:
   path: []
   p: 0
   go: 0
-  speed: 1
+  speed: 0.05
 --- !u!212 &294617106
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -555,7 +555,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 59fc3628311966c458a2c4f9382f963f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c4713315aa2f3f94084a0ee7d0c8aa05, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -576,9 +576,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 519420032}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &433877889
 GameObject:
@@ -593,7 +594,7 @@ GameObject:
   - component: {fileID: 433877892}
   - component: {fileID: 433877891}
   m_Layer: 5
-  m_Name: StartText (1)
+  m_Name: OpenText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -772,7 +773,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -796,11 +797,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 294617107}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &563567088
@@ -894,7 +895,7 @@ GameObject:
   - component: {fileID: 887449325}
   - component: {fileID: 887449324}
   m_Layer: 5
-  m_Name: Button
+  m_Name: GO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -962,7 +963,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 887449325}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1280544697}
+        m_MethodName: newTraveler
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &887449325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1013,7 +1025,7 @@ GameObject:
   - component: {fileID: 1050898903}
   - component: {fileID: 1050898902}
   m_Layer: 5
-  m_Name: EndText (1)
+  m_Name: CloseText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1152,6 +1164,7 @@ GameObject:
   - component: {fileID: 1280544695}
   - component: {fileID: 1280544694}
   - component: {fileID: 1280544693}
+  - component: {fileID: 1280544697}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1188,16 +1201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
 --- !u!223 &1280544695
 Canvas:
   m_ObjectHideFlags: 0
@@ -1238,13 +1241,34 @@ RectTransform:
   - {fileID: 1050898901}
   - {fileID: 1305317245}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1280544697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280544692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d15beee25806f54bbe19a1b73741caa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  traveler: {fileID: 294617105}
+  map: {fileID: 1947158960}
+  shortestPath: {fileID: 1947158959}
+  pathText: {fileID: 1529749355}
+  sourceText: {fileID: 157737643}
+  destText: {fileID: 1529749355}
+  openText: {fileID: 563567090}
+  closeText: {fileID: 1973053147}
+  road: {fileID: 7324450652367641756, guid: 5702105dc2a2ae84cb8a0155a24c5256, type: 3}
 --- !u!1 &1305317244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,7 +1350,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1305317247}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1280544697}
+        m_MethodName: closeNode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1305317247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1511,7 +1546,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: Starting Point
 --- !u!222 &1459115338
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1825,9 +1860,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'G
-
-    O'
+  m_Text: X
 --- !u!222 &1698333725
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1900,7 +1933,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1894143689
 GameObject:
@@ -1971,7 +2004,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: Destination
 --- !u!222 &1894143692
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2007,13 +2040,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1947158958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f50f79c89d9b0c043843ce5f8e8837cd, type: 3}
+  m_Script: {fileID: 11500000, guid: ba64d167b41daba429578a9ef3910bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 1947158960}
   sNode: 0
   tNode: 0
-  traveler: {fileID: 0}
+  traveler: {fileID: 294617105}
 --- !u!114 &1947158960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2023,7 +2056,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1947158958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfd576dc8a78ecb418738fd91b85b59a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2749de686e8b0434cb5a0687f6f8c71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   intersectionList: []
@@ -2043,7 +2076,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1973053145
 GameObject:
@@ -2192,9 +2225,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'G
-
-    O'
+  m_Text: O
 --- !u!222 &2066013572
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2284,7 +2315,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2095799047}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1280544697}
+        m_MethodName: openNode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2095799047
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -23,20 +23,20 @@ public class shortestPath : MonoBehaviour
         HashSet<IntersectionSO> closedList = new HashSet<IntersectionSO>();
         openList.Add(s);
 
-        while (openList.Count > 0)//Whilst there is something in the open list
+        while (openList.Count > 0)
         {
             
-            IntersectionSO CurrentNode = openList[0];//Create a node and set it to the first item in the open list
-            for (int i = 1; i < openList.Count; i++)//Loop through the open list starting from the second object
+            IntersectionSO CurrentNode = openList[0];
+            for (int i = 1; i < openList.Count; i++)
             {
-                if (openList[i].fCost < CurrentNode.fCost || openList[i].fCost == CurrentNode.fCost && openList[i].ihCost < CurrentNode.ihCost)//If the f cost of that object is less than or equal to the f cost of the current node
+                if (openList[i].fCost < CurrentNode.fCost || openList[i].fCost == CurrentNode.fCost && openList[i].ihCost < CurrentNode.ihCost)
                 {
-                    CurrentNode = openList[i];//Set the current node to that object
+                    CurrentNode = openList[i];
                 }
             }
 
-            openList.Remove(CurrentNode);//Remove that from the open list
-            closedList.Add(CurrentNode);//And add it to the closed list
+            openList.Remove(CurrentNode);
+            closedList.Add(CurrentNode);
 
             if (CurrentNode.num == t.num)
             {
@@ -44,10 +44,11 @@ public class shortestPath : MonoBehaviour
                 return;
             }
 
+            //check every adjacent node/intersection
             for (int i = 0; i < map.map[CurrentNode.num].Count; i++)
             {
                 IntersectionSO NeighborNode = map.map[CurrentNode.num][i].destNode;
-                if (closedList.Contains(map.map[CurrentNode.num][i].destNode)){
+                if (closedList.Contains(map.map[CurrentNode.num][i].destNode) || NeighborNode.active == false){
                     continue;
                 }
 
@@ -93,6 +94,7 @@ public class shortestPath : MonoBehaviour
     {
 
         currentNode.ihCost = Mathf.Sqrt(Mathf.Pow((currentNode.x - NeighborNode.x), 2) + Mathf.Pow((currentNode.y - NeighborNode.y), 2));
+        //return currentNode.ihCost/(map.map[currentNode.num][NeighborNode.num].speedLimit);
         return currentNode.ihCost;
     }
 
