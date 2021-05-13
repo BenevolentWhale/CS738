@@ -10,8 +10,8 @@ public class IntersectionSO : ScriptableObject
     public bool active = true;
 
     public float igCost, ihCost = 0;
-    public float fCost = 0;
-    //public float fCost { get { return igCost + ihCost; } };
+    //public float fCost = 0;
+    public float fCost { get { return igCost + ihCost; } }
 
     public IntersectionSO parent;
     public Vector3 pos;

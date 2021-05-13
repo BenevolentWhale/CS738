@@ -8,7 +8,7 @@ public class Traveler : MonoBehaviour
     public List<IntersectionSO> path;
     public float p;
     public bool go;
-    public float speed = .05f;
+    public float speed = .1f;
     int i = 0; int j = 1;
     // Start is called before the first frame update
     void Start()
@@ -27,8 +27,8 @@ public class Traveler : MonoBehaviour
             }
 
             
-            //float progress = (Time.time - startTime) * speed;
-            p += speed;
+            
+            p += speed*  Time.deltaTime;
             //move towards target
             transform.position = Vector3.MoveTowards(path[i].pos, path[j].pos, (p/Vector3.Distance(path[i].pos, path[j].pos)));
 

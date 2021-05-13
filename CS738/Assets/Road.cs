@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Road : MonoBehaviour
 {
+    //This is the GameObject for roads
+    //Basically it's the visual representation of the road that is created for each road in the shortests path
+
     public int src, dest, speedLimit;
     //public IntersectionSO source, destination;
     public float distance;
